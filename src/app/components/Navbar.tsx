@@ -1,4 +1,12 @@
 import Link from "next/link";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 function Navbar(){
     return(
@@ -7,6 +15,16 @@ function Navbar(){
           href="/">
             Next-store
           </Link>
+          <div className="flex items-center gap-8">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                Entrar
+              </SignInButton>
+            </SignedOut>
+          </div>
         </nav>
 
     )
